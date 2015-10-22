@@ -11,7 +11,7 @@
   <div class="form-group">
     <%= f.label :image1, class: "control-label col-sm-2" %>
     <div class="col-sm-2">
-      <%= image_tag @user.image1.thumbnail.url if @user.image1? %>
+      <%= image_tag @user.image1.url if @user.image1? %>
     </div>
     <div class="col-sm-8">
       <%= f.file_field :image1, class: 'form-control' %>
@@ -22,7 +22,7 @@
   <div class="form-group">
     <%= f.label :image2, class: "control-label col-sm-2" %>
     <div class="col-sm-2">
-      <%= image_tag @user.image2.thumbnail.url if @user.image2? %>
+      <%= image_tag @user.image2.url if @user.image2? %>
     </div>
     <div class="col-sm-8">
       <%= f.file_field :image2, class: 'form-control' %>
@@ -33,7 +33,7 @@
   <div class="form-group">
     <%= f.label :image3, class: "control-label col-sm-2" %>
     <div class="col-sm-2">
-      <%= image_tag @user.image3.thumbnail.url if @user.image3? %>
+      <%= image_tag @user.image3.url if @user.image3? %>
     </div>
     <div class="col-sm-8">
       <%= f.file_field :image3, class: 'form-control' %>
@@ -44,7 +44,7 @@
   <div class="form-group">
     <%= f.label :image4, class: "control-label col-sm-2" %>
     <div class="col-sm-2">
-      <%= image_tag @user.image4.thumbnail.url if @user.image4? %>
+      <%= image_tag @user.image4.url if @user.image4? %>
     </div>
     <div class="col-sm-8">
       <%= f.file_field :image4, class: 'form-control' %>

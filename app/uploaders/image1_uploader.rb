@@ -1,23 +1,28 @@
 # encoding: utf-8
 
 class Image1Uploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
+  # include Cloudinary::CarrierWave
   include CarrierWave::RMagick
 
+  process :resize_to_fit => [200, 200]
+
   version :standard do
-    process :resize_to_fill => [100, 150, :north]
+    process :resize_to_fill => [100, 150, Magick::NorthGravity]
   end
 
   version :thumbnail do
     process :resize_to_fit => [50, 50]
   end
 
+  # def public_id
+  #   return "user_#{model.id}_image1"
+  # end  
   def public_id
-    return "user_#{model.id}_image1"
-  end  
-  
+    return model.id
+  end
+
   # Choose what kind of storage to use for this uploader:
-  # storage :file
+  storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -48,9 +53,9 @@ class Image1Uploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

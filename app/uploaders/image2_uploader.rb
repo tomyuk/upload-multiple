@@ -1,23 +1,26 @@
 # encoding: utf-8
 
 class Image2Uploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
+  # include Cloudinary::CarrierWave
   include CarrierWave::RMagick
 
   version :standard do
-    process :resize_to_fill => [100, 150, :north]
+    process :resize_to_fill => [100, 150, Magick::NorthGravity]
   end
 
   version :thumbnail do
     process :resize_to_fit => [50, 50]
   end
 
+  # def public_id
+  #   return "user_#{model.id}_image2"
+  # end
   def public_id
-    return "user_#{model.id}_image2"
+    return model.id
   end
 
   # Choose what kind of storage to use for this uploader:
-  # storage :file
+  storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
