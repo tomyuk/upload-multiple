@@ -3,8 +3,8 @@
 </div>
 <div>Name: <%= @user.name %></div>
 <%= nivo_slider id: "slider" do %>
-  <%= image_tag(@user.image1_url, title: "Image1") if @user.image1.present? %>
-  <%= image_tag(@user.image2_url, title: "Image2") if @user.image2.present? %>
-  <%= image_tag(@user.image3_url, title: "Image3") if @user.image3.present? %>
-  <%= image_tag(@user.image4_url, title: "Image4") if @user.image4.present? %>
+  <%= image_tag(@user.image1.standard.url, title: "Image1") if @user.image1.present? %>
+  <%= image_tag(@user.image2.standard.url, title: "Image2") if @user.image2.present? %>
+  <%= image_tag(@user.image3.standard.url, title: "Image3") if @user.image3.present? %>
+  <%= image_tag(@user.image4.standard.url, title: "Image4") if @user.image4.present? %>
 <% end %>

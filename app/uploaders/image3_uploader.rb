@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class Image1Uploader < CarrierWave::Uploader::Base
+class Image3Uploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
   include CarrierWave::RMagick
 
@@ -13,9 +13,9 @@ class Image1Uploader < CarrierWave::Uploader::Base
   end
 
   def public_id
-    return "user_#{model.id}_image1"
+    return "user_#{model.id}_image3"
   end  
-  
+
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog

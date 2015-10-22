@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -18,6 +18,13 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+#    @user.image1.cache! unless @user.image1.blank?
+#    @user.image2.cache! unless @user.image2.blank?
+#    @user.image3.cache! unless @user.image3.blank?
+#    @user.image4.cache! unless @user.image4.blank?
+  end
+
   def update
     if @user.update(user_params)
       redirect_to user_path(@user)
@@ -29,9 +36,6 @@ class UsersController < ApplicationController
   def show
   end
   
-  def edit
-  end
-
   def destroy
   end
   

@@ -44,6 +44,10 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'bootstrap-sass'
+
 gem 'rmagick'
-gem 'carrierwave'
+#gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'cloudinary'
 gem 'nivo-rails'

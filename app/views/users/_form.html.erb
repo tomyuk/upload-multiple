@@ -1,21 +1,61 @@
-<%= form_for(user) do |f| %>
+<%= form_for(user, html: {class: "form-horizontal"}) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-      
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+  
+  <div class="form-group">
+    <%= f.label :name, class: "control-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: 'form-control col-sm-10' %>
+    </div>
+  </div>
 
-  <%= f.label :image1 %>
-  <%= f.file_field :image1, class: 'form-control' %>
+  <div class="form-group">
+    <%= f.label :image1, class: "control-label col-sm-2" %>
+    <div class="col-sm-2">
+      <%= image_tag @user.image1.thumbnail.url if @user.image1? %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.file_field :image1, class: 'form-control' %>
+      <%= f.hidden_field :image1_cache %>
+    </div>
+  </div>
 
-  <%= f.label :image2 %>
-  <%= f.file_field :image2, class: 'form-control' %>
+  <div class="form-group">
+    <%= f.label :image2, class: "control-label col-sm-2" %>
+    <div class="col-sm-2">
+      <%= image_tag @user.image2.thumbnail.url if @user.image2? %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.file_field :image2, class: 'form-control' %>
+      <%= f.hidden_field :image2_cache %>
+    </div>
+  </div>
 
-  <%= f.label :image3 %>
-  <%= f.file_field :image3, class: 'form-control' %>
+  <div class="form-group">
+    <%= f.label :image3, class: "control-label col-sm-2" %>
+    <div class="col-sm-2">
+      <%= image_tag @user.image3.thumbnail.url if @user.image3? %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.file_field :image3, class: 'form-control' %>
+      <%= f.hidden_field :image3_cache %>
+    </div>
+  </div>
 
-  <%= f.label :image4 %>
-  <%= f.file_field :image4, class: 'form-control' %>
+  <div class="form-group">
+    <%= f.label :image4, class: "control-label col-sm-2" %>
+    <div class="col-sm-2">
+      <%= image_tag @user.image4.thumbnail.url if @user.image4? %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.file_field :image4, class: 'form-control' %>
+      <%= f.hidden_field :image4_cache %>
+    </div>
+  </div>
 
-  <%= f.submit "Send", class: "btn btn-large btn-primary" %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Send", class: "btn btn-large btn-primary" %>
+    </div>
+  </div>
 
 <% end %>
